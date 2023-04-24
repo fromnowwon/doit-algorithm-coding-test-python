@@ -1,15 +1,19 @@
+# 구간의 합
 import sys
 input = sys.stdin.readline
-suNo, quizNo = map(int, input().split())
+
+n, m = map(int, input().split())
 numbers = list(map(int, input().split()))
-prefix_sum = [0] # 합배열 초기값
+
+sumArray = [0]
 temp = 0
 
 # 합배열 만들기
 for i in numbers:
-    temp = temp + i
-    prefix_sum.append(temp)
+    temp += i
+    sumArray.append(temp)
 
-for i in range(quizNo):
+# 구간의 합 구하기
+for i in sumArray:
     s, e = map(int, input().split())
-    print(prefix_sum[e] - prefix_sum[s-1]) # 구간 합 구하기
+    print(sumArray[e] - sumArray[s-1])
